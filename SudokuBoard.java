@@ -1,6 +1,8 @@
+//percys code
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.util.*;
 
 public class SudokuBoard {
 
@@ -25,6 +27,46 @@ public class SudokuBoard {
         } catch (FileNotFoundException e) {
             System.out.println("Cannot find file: " + filename);
         }
+    }
+    
+
+    public boolean isValid(){
+        return (validCharacters() && checkDuplicate());
+    }
+    
+    private boolean validCharacters(){
+      for(int r = 0; r < board.length; r++) {
+         for(int c = 0; c < board[0].length; c++) {
+            int i = board[r][c];
+            if(!(i >= 0 || i <= 9)){ // if its a number 0-9 or is '.'
+                System.out.println("invalid character");
+                return false;
+            }
+         }
+      }
+      return true;
+    }
+    
+    public boolean checkDuplicate() {
+      Set<Integer> set = new HashSet<Integer>();
+      int numbersFound = 0;
+      
+      //row
+      for(int r = 0; r < board.length; r++) {
+         for(int c = 0; c < board[0].length; c++) {
+            int num = board[r][c];
+            
+            if(num != 0){ // if the num isn't blank, count it as a number
+               if(set.contains(num)){ // if the number is already in the set
+                   System.out.println("duplicate number in row " + r); // theres a duplicate
+                   return false;
+               } else { // if its not
+                  set.add(num); // add it to the set
+               }
+            }
+         }
+      }
+      return true;
     }
 
     public String toString() {
