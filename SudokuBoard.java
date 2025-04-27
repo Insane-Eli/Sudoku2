@@ -52,9 +52,7 @@ public class SudokuBoard {
         for (int r = 0; r < board.length; r++) { // start with a row
             Set<Integer> set = new HashSet<Integer>();
             for (int c = 0; c < board[0].length; c++) { // then check ever column in that row
-
                 int num = board[r][c];
-
                 if (num != 0) { // if the num isn't blank, count it as a number
                     if (set.contains(num)) { // if the number is already in the set
                         System.out.println("duplicate number in row " + r); // theres a duplicate
@@ -63,7 +61,6 @@ public class SudokuBoard {
                         set.add(num); // add it to the set
                     }
                 }
-
             }
         }
 
@@ -107,7 +104,7 @@ public class SudokuBoard {
                 }
             }
         }
-
+        //After checking the row, col, and the miniSquare, return true if it passed all the test.
         return true;
     }
 
@@ -150,9 +147,7 @@ public class SudokuBoard {
                 return false;
             }
         }
-
       return true;
-
     }
 
 
@@ -168,7 +163,6 @@ public class SudokuBoard {
             }
             result += "\n";
         }
-
         return result;
     }
 
