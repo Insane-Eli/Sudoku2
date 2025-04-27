@@ -30,10 +30,11 @@ public class SudokuBoard {
     }
 
     public boolean isValid() {
-        return (validCharacters() && noDuplicates()); // if the board is all valid characters with no duplicate numbers, the board is valid
+        return (checkValidCharacters() && checkRows() && checkColumns() && checkMiniSquares()); // if the board is all valid characters with no duplicate numbers, the board is valid
     }
-
-    public boolean validCharacters() {
+   
+    //Checking for Valid Data
+    private boolean checkValidCharacters() {
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
                 int i = board[r][c];
@@ -45,8 +46,9 @@ public class SudokuBoard {
         }
         return true;
     }
-
-    public boolean noDuplicates() {
+   
+    //Checking the rows
+    private boolean checkRows() {
         // check rows
         for (int r = 0; r < board.length; r++) { // start with a row
             Set<Integer> set = new HashSet<Integer>();
@@ -62,7 +64,11 @@ public class SudokuBoard {
                 }
             }
         }
-
+        return true;
+    }
+    
+    //Checking the columns
+    private boolean checkColumns(){
         // check columns
         for (int c = 0; c < board[0].length; c++) { // start with a column
             Set<Integer> set = new HashSet<Integer>();
@@ -78,7 +84,11 @@ public class SudokuBoard {
                 }
             }
         }
-
+        return true;
+    }
+    
+    //Checking the mini-squares
+    private boolean checkMiniSquares() {
         // check mini squares
         for (int s = 1; s <= 9; s++) { // go through mini squares 1-9
             Set<Integer> set = new HashSet<Integer>();
@@ -97,10 +107,9 @@ public class SudokuBoard {
                 }
             }
         }
-        //After checking the row, col, and the miniSquare, return true if it passed all the test.
         return true;
     }
-
+    
     private int[][] miniSquare(int spot) {
         int[][] mini = new int[3][3];
         for (int r = 0; r < 3; r++) {
@@ -113,8 +122,6 @@ public class SudokuBoard {
         }
         return mini;
     }
-
-
 
     public boolean isSolved() {
         if (!isValid()) { // check if the board is valid first
