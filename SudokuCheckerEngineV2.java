@@ -8,7 +8,7 @@ public class SudokuCheckerEngineV2 {
       
       // an empty board is valid, but not solved
       System.out.print("Checking empty board...");
-      MySudokuBoard board1 = new MySudokuBoard("boards/empty.sdk");
+      SudokuBoard board1 = new SudokuBoard("boards/empty.sdk");
       assert board1.isValid() : "isValid: should be true";
       assert !board1.isSolved() : "isSolved: should be false";
       if(board1.isValid() && !board1.isSolved()) 
@@ -20,7 +20,7 @@ public class SudokuCheckerEngineV2 {
    
       // an incomplete, valid board is valid, but not solved
       System.out.print("Checking incomplete, valid board...");
-      MySudokuBoard board2 = new MySudokuBoard("boards/valid-incomplete.sdk");
+      SudokuBoard board2 = new SudokuBoard("boards/valid-incomplete.sdk");
       assert board2.isValid() : "isValid: should be true";
       assert !board2.isSolved() : "isSolved: should be false";
       if(board2.isValid() && !board2.isSolved()) 
@@ -32,7 +32,7 @@ public class SudokuCheckerEngineV2 {
       
       // a complete, valid board is valid and solved
       System.out.print("Checking complete, valid board...");
-      MySudokuBoard board3 = new MySudokuBoard("boards/valid-complete.sdk");
+      SudokuBoard board3 = new SudokuBoard("boards/valid-complete.sdk");
       assert board3.isValid() : "isValid: should be true";
       assert board3.isSolved() : "isSolved: should be true";
       if(board3.isValid() && board3.isSolved()) 
@@ -44,7 +44,7 @@ public class SudokuCheckerEngineV2 {
       
       // a board with dirty data is not valid and not solved
       System.out.print("Checking dirty data board...");
-      MySudokuBoard board4 = new MySudokuBoard("boards/dirty-data.sdk");
+      SudokuBoard board4 = new SudokuBoard("boards/dirty-data.sdk");
       assert !board4.isValid() : "isValid: should be false";
       assert !board4.isSolved() : "isSolved: should be false";
       if(!board4.isValid() && !board4.isSolved()) 
@@ -56,7 +56,7 @@ public class SudokuCheckerEngineV2 {
       
       // a board with a row violation is not valid and not solved
       System.out.print("Checking row violating board...");
-      MySudokuBoard board5 = new MySudokuBoard("boards/row-violation.sdk");
+      SudokuBoard board5 = new SudokuBoard("boards/row-violation.sdk");
       assert !board5.isValid() : "isValid: should be false";
       assert !board5.isSolved() : "isSolved: should be false";
       if(!board5.isValid() && !board5.isSolved()) 
@@ -68,7 +68,7 @@ public class SudokuCheckerEngineV2 {
       
       // a board with a column violation is not valid and not solved
       System.out.print("Checking col violating board...");
-      MySudokuBoard board6 = new MySudokuBoard("boards/col-violation.sdk");
+      SudokuBoard board6 = new SudokuBoard("boards/col-violation.sdk");
       assert !board6.isValid() : "isValid: should be false";
       assert !board6.isSolved() : "isSolved: should be false";
       if(!board6.isValid() && !board6.isSolved()) 
@@ -80,7 +80,7 @@ public class SudokuCheckerEngineV2 {
       
       // a board with both a row and a column violation is not valid and not solved
       System.out.print("Checking row&col violating board...");
-      MySudokuBoard board7 = new MySudokuBoard("boards/row-and-col-violation.sdk");
+      SudokuBoard board7 = new SudokuBoard("boards/row-and-col-violation.sdk");
       assert !board7.isValid() : "isValid: should be false";
       assert !board7.isSolved() : "isSolved: should be false";
       if(!board7.isValid() && !board7.isSolved()) 
@@ -92,7 +92,7 @@ public class SudokuCheckerEngineV2 {
       
       // a board with a mini-square violation is not valid and not solved
       System.out.print("Checking mini-square violating board...");
-      MySudokuBoard board8 = new MySudokuBoard("boards/grid-violation.sdk");
+      SudokuBoard board8 = new SudokuBoard("boards/grid-violation.sdk");
       assert !board8.isValid() : "isValid: should be false";
       assert !board8.isSolved() : "isSolved: should be false";
       if(!board8.isValid() && !board8.isSolved()) 
