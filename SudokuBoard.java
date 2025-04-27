@@ -33,7 +33,7 @@ public class SudokuBoard {
         return (validCharacters() && noDuplicates()); // if the board is all valid characters with no duplicate numbers, the board is valid
     }
 
-    private boolean validCharacters() {
+    public boolean validCharacters() {
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
                 int i = board[r][c];
@@ -47,7 +47,6 @@ public class SudokuBoard {
     }
 
     public boolean noDuplicates() {
-
         // check rows
         for (int r = 0; r < board.length; r++) { // start with a row
             Set<Integer> set = new HashSet<Integer>();
@@ -68,9 +67,7 @@ public class SudokuBoard {
         for (int c = 0; c < board[0].length; c++) { // start with a column
             Set<Integer> set = new HashSet<Integer>();
             for (int r = 0; r < board.length; r++) { // then check every row in that column
-
                 int num = board[r][c];
-
                 if (num != 0) { // if the num isn't blank, count it as a number
                     if (set.contains(num)) { // if the number is already in the set
                         System.out.println("duplicate number in column " + c); // theres a duplicate
@@ -79,19 +76,15 @@ public class SudokuBoard {
                         set.add(num); // add it to the set
                     }
                 }
-
             }
         }
 
         // check mini squares
         for (int s = 1; s <= 9; s++) { // go through mini squares 1-9
-
             Set<Integer> set = new HashSet<Integer>();
             int[][] minisquare = miniSquare(s);
-
             for (int c = 0; c < minisquare[0].length; c++) {
                 for (int r = 0; r < minisquare.length; r++) { // check each number in the mini square
-
                     int num = minisquare[r][c];
                     if (num != 0) { // if the num isn't blank, count it as a number
                         if (set.contains(num)) { // if the number is already in the set
@@ -124,11 +117,9 @@ public class SudokuBoard {
 
 
     public boolean isSolved() {
-
         if (!isValid()) { // check if the board is valid first
             return false;
         }
-
         Map<Integer, Integer> numberCount = new HashMap<>(); // next count how many of each number is on the board
         for (int[] row : board) {
             for (int num : row) {
