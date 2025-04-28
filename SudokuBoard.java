@@ -136,6 +136,8 @@ public class SudokuBoard {
                     } else { // if its not
                         numberCount.put(num, 1); // add it to the map
                     }
+                } else { // If it is '0', then return false because it is not solved.
+                    return false;
                 }
             }
         }
@@ -145,7 +147,7 @@ public class SudokuBoard {
                 return false;
             }
         }
-      return true;
+        return true;
     }
 
 
