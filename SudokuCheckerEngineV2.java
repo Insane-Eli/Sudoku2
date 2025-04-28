@@ -106,3 +106,40 @@ public class SudokuCheckerEngineV2 {
          System.out.println("**** HORRAY: ALL TESTS PASSED ****");
    }
 }
+
+/*
+# PROGRAM OUTPUT
+
+  ----jGRASP exec: java -ea SudokuCheckerEngineV2
+ Checking empty board...passed.
+ Checking incomplete, valid board...passed.
+ Checking complete, valid board...passed.
+ Checking dirty data board...invalid character
+ invalid character
+ invalid character
+ invalid character
+ passed.
+ Checking row violating board...duplicate number in row 3
+ duplicate number in row 3
+ duplicate number in row 3
+ duplicate number in row 3
+ passed.
+ Checking col violating board...duplicate number in column 0
+ duplicate number in column 0
+ duplicate number in column 0
+ duplicate number in column 0
+ passed.
+ Checking row&col violating board...duplicate number in row 4
+ duplicate number in row 4
+ duplicate number in row 4
+ duplicate number in row 4
+ passed.
+ Checking mini-square violating board...duplicate number in mini square 9
+ duplicate number in mini square 9
+ duplicate number in mini square 9
+ duplicate number in mini square 9
+ passed.
+ **** HORRAY: ALL TESTS PASSED ****
+ 
+  ----jGRASP: Operation complete.
+*/
