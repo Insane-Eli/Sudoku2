@@ -38,7 +38,7 @@ public class SudokuBoard {
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
                 int i = board[r][c];
-                if (!(i >= 0 || i <= 9)) { // if its a number 0-9 or is '.'
+                if (!(i >= 0 && i <= 9)) { // if its a number 0-9 or is '.'
                     System.out.println("invalid character");
                     return false;
                 }
